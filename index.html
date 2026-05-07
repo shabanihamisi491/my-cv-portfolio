@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shabani Hamisi Said | Networking Portal</title>
+    <style>
+        /* --- Themes --- */
+        :root {
+            --bg-overlay: rgba(10, 14, 20, 0.88);
+            --card-bg: rgba(22, 27, 34, 0.85);
+            --text-color: #c9d1d9;
+            --heading-color: #58a6ff;
+            --accent-color: #238636;
+            --border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .theme-light {
+            --bg-overlay: rgba(246, 248, 250, 0.85);
+            --card-bg: rgba(255, 255, 255, 0.95);
+            --text-color: #24292f;
+            --heading-color: #0969da;
+            --accent-color: #1a7f37;
+            --border-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .theme-rain {
+            --bg-overlay: rgba(13, 20, 30, 0.75);
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --text-color: #f0f6fc;
+            --heading-color: #79c0ff;
+            --accent-color: #1f6feb;
+            --border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background: linear-gradient(var(--bg-overlay), var(--bg-overlay)), 
+                        url('https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&q=80&w=2070') no-repeat center center fixed;
+            background-size: cover;
+            color: var(--text-color);
+            transition: all 0.4s ease;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        .page {
+            display: none;
+            min-height: 100vh;
+            padding: 60px 20px;
+            box-sizing: border-box;
+            animation: fadeIn 0.5s ease-out;
+        }
+        .page.active { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.99); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        nav {
+            position: fixed;
+            top: 0; width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            box-sizing: border-box;
+            z-index: 1000;
+        }
+
+        .theme-btn {
+            padding: 10px 22px;
+            background: var(--card-bg);
+            color: var(--text-color);
+            border: 1px solid var(--border-color);
+            border-radius: 50px;
+            cursor: pointer;
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            font-weight: 600;
+        }
+
+        .profile-pic {
+            width: 160px; height: 160px;
+            border-radius: 50%;
+            border: 4px solid var(--accent-color);
+            margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            object-fit: cover;
+        }
+
+        .main-cta {
+            background: var(--accent-color);
+            color: white;
+            padding: 18px 50px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            letter-spacing: 1px;
+        }
+
+        .main-cta:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.4); }
+
+        .grid {
+            max-width: 900px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 45px 25px;
+            border-radius: 28px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .card:hover { transform: translateY(-10px); border-color: var(--heading-color); }
+
+        .content {
+            width: 95%;
+            max-width: 700px;
+            background: var(--card-bg);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            padding: 50px;
+            border-radius: 35px;
+            border: 1px solid var(--border-color);
+        }
+
+        .back-btn {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--heading-color);
+            padding: 10px 20px;
+            border-radius: 12px;
+            cursor: pointer;
+            margin-bottom: 25px;
+            font-weight: bold;
+        }
+
+        .tag {
+            display: inline-block;
+            background: var(--accent-color);
+            color: rgb(0, 0, 0);
+            padding: 8px 16px;
+            border-radius: 10px;
+            margin: 5px;
+        }
+
+        footer { margin-top: 50px; text-align: center; font-size: 0.8rem; opacity: 0.5; width: 100%; }
+    </style>
+</head>
+<body class="theme-midnight">
+
+    <nav>
+        <div style="font-weight: 800; font-size: 1.2rem; color: var(--heading-color);">SHS // CV PORTFOLIO</div>
+        <button class="theme-btn" onclick="rotateTheme()">Change Theme</button>
+    </nav>
+
+    <!-- HOME -->
+    <main id="home" class="page active">
+        <img src="my-photo.jpg" alt="Shabani" class="profile-pic">
+        <h1 style="font-size: 3rem; margin: 0;">Shabani Hamisi Said</h1>
+        <p style="font-size: 1.2rem; margin-bottom: 40px; opacity: 0.9;">Computer Engineering & IT | COICT</p>
+        <button class="main-cta" onclick="navTo('select')">Enter Dashboard</button>
+    </main>
+
+    <!-- SELECTION GRID -->
+    <div id="select" class="page">
+        <h2 style="margin-bottom: 50px; font-size: 2rem;">Select Dashboard</h2>
+        <div class="grid">
+            <div class="card" onclick="navTo('personal')">
+                <div style="font-size: 3rem; margin-bottom: 10px;">🧑</div>
+                <h3>Personal Details</h3>
+            </div>
+            <div class="card" onclick="navTo('edu')">
+                <div style="font-size: 3rem; margin-bottom: 10px;">🛡️</div>
+                <h3>Educational Background</h3>
+            </div>
+            <div class="card" onclick="navTo('hobbies')">
+                <div style="font-size: 3rem; margin-bottom: 10px;">⚡</div>
+                <h3>Hobbies</h3>
+            </div>
+            <div class="card" onclick="navTo('loc')">
+                <div style="font-size: 3rem; margin-bottom: 10px;">🌐</div>
+                <h3>Location</h3>
+            </div>
+            <div class="card" onclick="navTo('contact')">
+                <div style="font-size: 3rem; margin-bottom: 10px;">📟</div>
+                <h3>Contact</h3>
+            </div>
+        </div>
+        <button class="back-btn" style="margin-top: 50px;" onclick="navTo('home')">Exit to Home</button>
+    </div>
+
+    <!-- DATA PAGES -->
+    <div id="personal" class="page">
+        <div class="content">
+            <button class="back-btn" onclick="navTo('select')">← Back</button>
+            <h2 style="color: var(--heading-color);">Personal Details</h2>
+            <p><strong>Full Name:</strong> Shabani Hamisi Said</p>
+            <p><strong>Profession:</strong> Computer Engineer & IT Specialist</p>
+            <p><strong>Language Proficiency:</strong> English & Swahili</p>
+            <p><strong>Date of Birth:</strong> 9th August 2002</p>
+            <p><strong>Age:</strong> 24 years</p>
+        </div>
+    </div>
+
+    <div id="edu" class="page">
+        <div class="content">
+            <button class="back-btn" onclick="navTo('select')">← Back</button>
+            <h2 style="color: var(--heading-color);">Education</h2>
+            <p><strong>University of Dar es Salaam</strong><br>BSc. in Computer Engineering & IT (2024 - Present)</p>
+            <p><strong>Nsumba High School</strong><br>Advanced Level (PCM) (2022 - 2024)</p>
+            <p><strong>Mtoni Secondary</strong><br>Ordinary Level (2018 - 2021)</p>
+            <p><strong>Mabatini "B" Primary School</strong><br>2011 - 2017</p>
+        </div>
+    </div>
+
+    <div id="hobbies" class="page">
+        <div class="content">
+            <button class="back-btn" onclick="navTo('select')">← Back</button>
+            <h2 style="color: var(--heading-color);">Interests</h2>
+            <div class="tag">🕺 Dancing</div>
+            <div class="tag">🎵 Music</div>
+            <div class="tag">🎮 Gaming</div>
+            <div class="tag">💻 Systems</div>
+            <div class="tag">🛠️ Networking</div>
+        </div>
+    </div>
+
+    <div id="loc" class="page">
+        <div class="content">
+            <button class="back-btn" onclick="navTo('select')">← Back</button>
+            <h2 style="color: var(--heading-color);">Location</h2>
+            <p><strong>Dar es Salaam, Tanzania</strong></p>
+            <p>COICT Campus Area (Kijitonyama).</p>
+        </div>
+    </div>
+
+    <div id="contact" class="page">
+        <div class="content">
+            <button class="back-btn" onclick="navTo('select')">← Back</button>
+            <h2 style="color: var(--heading-color);">Connectivity</h2>
+            <p>Email: shabanihamisi491@gmail.com</p>
+            <p>Phone: 0743950869</p>
+            <a href="https://wa.me/255743950869" target="_blank" style="background: #25D366; color: white; padding: 12px 25px; border-radius: 10px; text-decoration: none; display: inline-block; margin-top: 15px; font-weight: bold;">WhatsApp</a>
+        </div>
+    </div>
+
+    <footer>&copy; 2026 Shabani Hamisi Said | Computer Engineer & IT</footer>
+
+    <script>
+        function navTo(id) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            window.scrollTo(0,0);
+        }
+
+        const themes = ['midnight', 'light', 'rain'];
+        let tIdx = 0;
+
+        function rotateTheme() {
+            document.body.classList.remove('theme-midnight', 'theme-light', 'theme-rain');
+            tIdx = (tIdx + 1) % themes.length;
+            document.body.classList.add('theme-' + themes[tIdx]);
+        }
+    </script>
+</body>
+</html>
