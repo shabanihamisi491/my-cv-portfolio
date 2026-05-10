@@ -1,9 +1,9 @@
 # my-cv-portfolio
 
-A sleek, responsive personal portfolio website designed with a **Network Administrator** aesthetic. This project features a multi-page portal experience with a custom "Rainy Drop" glassmorphism theme and dynamic networking-themed backgrounds.
+A sleek, responsive personal cv portfolio website designed with a **Network Administrator** aesthetic. This project features a multi-page portal experience with a custom "Rainy Drop" glassmorphism theme and dynamic networking-themed backgrounds.
 
 ## 🚀 Live Demo
-[Insert your GitHub Pages or Netlify link here]
+[https://shabanihamisi491.github.io/my-cv-portfolio/]
 
 ## 🛠️ Tech Stack
 *   **HTML5:** Semantic structure for high accessibility.
