@@ -19,6 +19,7 @@ A sleek, responsive personal cv portfolio website designed with a **Network Admi
 ## 📂 Project Structure
 *   `index.html`: The core file containing the structure, styling, and navigation logic.
 *   `my-photo.jpg`: Profile image used on the landing page.
+*   'bg2.jpg' : image for background 
 
 ## 📝 Sections Included
 1.  **Personal Details:** Professional overview and role.
